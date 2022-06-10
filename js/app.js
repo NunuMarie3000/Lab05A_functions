@@ -9,15 +9,19 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
+  //creates an array
   let sumArray = [];
+  //
   let added = a + b;
+  //
   let sumstring = `The sum of ${a} and ${b} is ${added}.`;
+  //
   sumArray.push(added, sumstring);
   return sumArray;
 }
 
 // Here is the test for sum(); uncomment it to run it
-testSum(4, 7);
+// testSum(4, 7);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -33,7 +37,7 @@ Test this function by hand in the console to get it working, and when you think 
 function multiply(a, b) { //eslint-disable-line
   let multiplyArray = [];
   let times = a * b;
-  let multiplyString = `The product of ${a} and ${b} is ${times}.`
+  let multiplyString = `The product of ${a} and ${b} is ${times}.`;
   multiplyArray.push(times, multiplyString);
   return multiplyArray;
 }
@@ -56,7 +60,13 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-
+  let samArray = [];
+  let samsum = sum(a,sum(b,c)[0])[0];
+  let sammultiply = multiply(a,multiply(b,c)[0])[0];
+  let samstringone =  `${a} and ${b} and ${c} sum to ${samsum}.`;
+  let samstringtwo = `The product of ${a} and ${b} and ${c} is ${sammultiply}.`;
+  samArray.push(samsum, sammultiply, samstringone, samstringtwo);
+  return samArray;
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
