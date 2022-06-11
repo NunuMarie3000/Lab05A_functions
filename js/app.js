@@ -9,13 +9,13 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-  //creates an array
+  //creates an empty array
   let sumArray = [];
-  //
+  //declare variable and assign it the sum of a and b
   let added = a + b;
-  //
+  //declare variable and give it value of concatenated/template literal string
   let sumstring = `The sum of ${a} and ${b} is ${added}.`;
-  //
+  //adding values of both variables to the array
   sumArray.push(added, sumstring);
   return sumArray;
 }
@@ -35,9 +35,13 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
+  //declare variable as an empty array
   let multiplyArray = [];
+  //set variable equal to product of a and b
   let times = a * b;
+  //set variable to concatenated string
   let multiplyString = `The product of ${a} and ${b} is ${times}.`;
+  //push both variables into the array
   multiplyArray.push(times, multiplyString);
   return multiplyArray;
 }
@@ -60,11 +64,17 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
+  //assign empty array
   let samArray = [];
+  //adds a + (b+c), but only using the index 0 value of the multiply function, which would be the sum and not sum and string 
   let samsum = sum(a,sum(b,c)[0])[0];
+  //multiplies a * (b*c) same principle as above
   let sammultiply = multiply(a,multiply(b,c)[0])[0];
+  //set concatenated string to give sum value
   let samstringone =  `${a} and ${b} and ${c} sum to ${samsum}.`;
+  //set concatenated string to give product value
   let samstringtwo = `The product of ${a} and ${b} and ${c} is ${sammultiply}.`;
+  //pushes all 4 variables into the array from before
   samArray.push(samsum, sammultiply, samstringone, samstringtwo);
   return samArray;
 }
@@ -88,9 +98,13 @@ Test this function by hand in the console to get it working, and when you think 
 let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
+  //empty array
   let fourArray = [];
+  //sumofnum = num1 + (num2 + num3), showing first index value of the sum function, sum and not sum and string value
   let sumofnum = sum(sumArr[0], sum(sumArr[1], sumArr[2])[0])[0];
+  //concatenated string value
   let sumofnumstring = `${sumArr[0]},${sumArr[1]},${sumArr[2]} was passed in as an array of numbers, and ${sumofnum} is their sum.`
+  //pushes values into the array
   fourArray.push(sumofnum, sumofnumstring,);
   return fourArray;
 }
@@ -113,9 +127,13 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
+  //declares empty array
   let fiveArray = [];
+  //product = num1 * (num2 * num3), but only the product value, not product and string, which would normally follow with the multiply function created previously
   let productofnum = multiply(multArr[0], multiply(multArr[1], multArr[2])[0])[0];
+  //concatenated string value
   let productofnumstring = `The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${productofnum}.`
+  //pushes values into array
   fiveArray.push(productofnum, productofnumstring,);
   return fiveArray;
 }
@@ -145,7 +163,22 @@ Test this function by hand in the console to get it working, and when you think 
 let testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
-
+  //sets variable to multiply numbers against equal to 1
+  let allTogether = 1;
+  //loop that iterates through all values in a specific array
+  for(let i = 0; i < dynamicArray.length; i++){
+    //allTogether = the value of allTogether * whatever array value we're on, multiplying allTogether with it's previous values as we iterate through the loop
+    allTogether = multiply(allTogether,dynamicArray[i])[0];
+  }
+  //declares empty array variable
+  let sixArray = [];
+  //creates numbers in the array without array brackets and with a comma between each so it's neat for the string value
+  let dyArrNoBrack = dynamicArray.join(',');
+  //concatenated string value
+  let mAAstring =  `The numbers ${dyArrNoBrack} have a product of ${allTogether}.`;
+  //pushes values to the array
+  sixArray.push(allTogether,mAAstring);
+  return sixArray;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
